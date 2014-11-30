@@ -1,6 +1,11 @@
 $(document).on('click', '#go-search', function() {
 	findImagesOnGoogle({keywords: $('#search-term').val(), container: '#search-results'})
 });
+
+$(document).on('keyup', '#search-term', function() {
+	findImagesOnGoogle({keywords: $('#search-term').val(), container: '#search-results'})
+});
+
 $(document).on('click', '#search-results img', function() {
 	var url = $(this).data('url');
 	$("#workspace img").remove();
@@ -34,4 +39,12 @@ $(document).on('change', '#colour', function() {
 
 $(document).on('change', '#align', function() {
 	$("#caption").css("text-align", $(this).val());
+});
+
+$(document).on('click', '.btn_example1', function() {
+	html2canvas(workspace, {
+	  onrendered: function(canvas) {
+	    document.body.appendChild(canvas);
+	  }
+	});
 });
