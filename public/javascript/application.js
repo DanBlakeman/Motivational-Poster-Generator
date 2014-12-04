@@ -17,6 +17,12 @@ $(document).on('input', '#text', function() {
 	$("#caption").text($(this).val());
 });
 
+$(document).ready(function () {
+   $("#caption").draggable({ containment: "#workspace" })
+   .resizable();
+});
+
+
 $(document).on('change', '#left', function() {
 	$("#caption").css("left", $(this).val() + 'px');
 });
@@ -42,7 +48,7 @@ $(document).on('change', '#align', function() {
 });
 
 $(document).on('click', '.btn_example1', function() {
-	html2canvas(workspace, {
+	html2canvas(workspace	, {
 	  onrendered: function(canvas) {
 	    document.body.appendChild(canvas);
 	  }
